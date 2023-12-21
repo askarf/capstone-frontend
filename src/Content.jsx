@@ -5,6 +5,9 @@ import { ItemsIndex } from "./ItemsIndex";
 import ItemShow from "./ItemShow";
 import { UserIndex } from "./UserIndex";
 import UserShow from "./UserShow";
+import SignUp from "./SignUp";
+import SignIn from "./SignIn";
+import { LogoutLink } from "./LogoutLink";
 
 export function Content() {
   const [items, setItems] = useState([]);
@@ -33,11 +36,15 @@ export function Content() {
   return (
     <div>
       <Routes>
-        <Route path="/items" element={<ItemsIndex items={items} />} />
+        <Route path="/" element={<ItemsIndex items={items} />} />
         <Route path="/items/:itemId" element={<ItemShow items={items} />} />
 
         <Route path="/users" element={<UserIndex users={users} />} />
         <Route path="/users/:userId" element={<UserShow users={users} />} />
+
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/logout" element={<LogoutLink />} />
       </Routes>
     </div>
   );

@@ -1,11 +1,14 @@
+import { Link } from "react-router-dom";
+
+import { UserProfile } from "./UserProfile";
+
 export function Header() {
   return (
     <div>
-      <h1>logo goes here</h1>
-      <h1>sign in goes here</h1>
-      <h1>sign up goes here</h1>
-      <h1>sign out goes here</h1>
-      <h1>my closet goes here</h1>
+      <Link to={`/signup`}>Sign Up!</Link> | <Link to={`/signin`}>Sign In!</Link> | <Link to={`/logout`}>Log Out!</Link>
+      <h1>
+        <UserProfile />
+      </h1>
     </div>
   );
 }
