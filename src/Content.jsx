@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { ItemsIndex } from "./ItemsIndex";
+import ItemShow from "./ItemShow";
 
 export function Content() {
   const [items, setItems] = useState([]);
@@ -13,12 +14,15 @@ export function Content() {
     });
   };
 
-  useEffect(handleIndexItems, []);
+  useEffect(() => {
+    handleIndexItems();
+  }, []); // Correct dependency array to fix the ESLint warning
 
   return (
     <div>
       <Routes>
         <Route path="/items" element={<ItemsIndex items={items} />} />
+        <Route path="/items/:itemId" element={<ItemShow items={items} />} />
       </Routes>
     </div>
   );
