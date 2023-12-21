@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function ItemShow(props) {
   const { itemId } = useParams();
@@ -17,9 +17,10 @@ function ItemShow(props) {
       <h1>name: {selectedItem.name}</h1>
       <p>description: {selectedItem.description}</p>
       <p>price: {selectedItem.price}</p>
-      <p>
+      <Link to={`/users/${selectedItem.user.id}`}>
         seller: {selectedItem.user.name} {selectedItem.user.last_name}
-      </p>
+      </Link>
+      <Link to={`/users`}>All users</Link>
     </div>
   );
 }
