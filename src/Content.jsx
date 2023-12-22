@@ -48,7 +48,7 @@ export function Content() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/logout" element={<LogoutLink />} />
 
-        <Route path="/userprofile/:userId" element={<UserProfile />} />
+        <Route path="/userprofile/:userId" element={<UserProfile users={users} items={items} />} />
       </Routes>
     </div>
   );
