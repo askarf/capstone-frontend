@@ -1,3 +1,9 @@
 export function UserProfile() {
-  return <div>**currents user's profile</div>;
+  return (
+    <div>
+      <h1>hi</h1>
+    </div>
+  );
 }
+
+export default UserProfile;

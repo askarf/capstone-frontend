@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useParams, Link, useNavigate } from "react-router-dom";
 
 export function UserShow(props) {

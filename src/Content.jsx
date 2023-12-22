@@ -7,6 +7,7 @@ import { UserIndex } from "./UserIndex";
 import UserShow from "./UserShow";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
+import UserProfile from "./UserProfile";
 import { LogoutLink } from "./LogoutLink";
 
 export function Content() {
@@ -41,11 +42,13 @@ export function Content() {
 
         <Route path="/users" element={<UserIndex users={users} />} />
         <Route path="/users/:userId" element={<UserShow users={users} />} />
-        <Route path="/userprofile/:userId" element={<UserShow users={users} />} />
+        <Route path="/user/:userId" element={<UserShow users={users} />} />
 
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/logout" element={<LogoutLink />} />
+
+        <Route path="/userprofile/:userId" element={<UserProfile />} />
       </Routes>
     </div>
   );

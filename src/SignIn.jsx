@@ -17,8 +17,10 @@ export function SignIn() {
       .post("http://localhost:3000/sessions.json", params)
       .then((response) => {
         console.log(response.data);
+
         axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
         localStorage.setItem("jwt", response.data.jwt);
+        localStorage.setItem("currentUser", response.data.user_id);
         event.target.reset();
         window.location.href = "/"; // Change this to hide a modal, redirect to a specific page, etc.
       })
