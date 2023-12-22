@@ -41,6 +41,7 @@ export function Content() {
 
         <Route path="/users" element={<UserIndex users={users} />} />
         <Route path="/users/:userId" element={<UserShow users={users} />} />
+        <Route path="/userprofile/:userId" element={<UserShow users={users} />} />
 
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />

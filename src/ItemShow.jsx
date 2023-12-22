@@ -1,7 +1,9 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 function ItemShow(props) {
   const { itemId } = useParams();
+  const navigate = useNavigate();
+
   const selectedItem = props.items.find((item) => item.id.toString() === itemId);
 
   if (!selectedItem) {
@@ -12,6 +14,10 @@ function ItemShow(props) {
     );
   }
 
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div>
       <h1>name: {selectedItem.name}</h1>
@@ -20,7 +26,12 @@ function ItemShow(props) {
       <Link to={`/users/${selectedItem.user.id}`}>
         seller: {selectedItem.user.name} {selectedItem.user.last_name}
       </Link>
-      <Link to={`/users`}>All users</Link>
+      <br />
+
+      <Link to="#" onClick={handleGoBack}>
+        Go Back
+      </Link>
+      <br />
     </div>
   );
 }

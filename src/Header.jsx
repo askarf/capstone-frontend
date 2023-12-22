@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
 
-import { UserProfile } from "./UserProfile";
-
 export function Header() {
   return (
     <div>
-      <Link to={`/signup`}>Sign Up!</Link> | <Link to={`/signin`}>Sign In!</Link> | <Link to={`/logout`}>Log Out!</Link>
-      <h1>
-        <UserProfile />
-      </h1>
+      {localStorage.jwt === undefined ? (
+        <div>
+          <Link to={`/signup`}>Sign Up!</Link> | <Link to={`/signin`}>Sign In!</Link>
+        </div>
+      ) : (
+        <div>
+          <Link to={`/logout`}>Log Out!</Link> | <Link to={`/userprofile`}></Link>
+        </div>
+      )}
     </div>
   );
 }

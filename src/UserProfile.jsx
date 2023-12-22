@@ -1,3 +1,3 @@
 export function UserProfile() {
-  return <div>USER PROFILE!</div>;
+  return <div>**currents user's profile</div>;
 }
