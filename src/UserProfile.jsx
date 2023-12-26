@@ -47,7 +47,8 @@ export function UserProfile(props) {
               <p>{item.condition}</p>
               <p>{item.retail_price}</p>
               <p>{item.selling_price}</p>
-              <p>EDIT</p>
+
+              <p></p>
             </div>
           </div>
         ))}

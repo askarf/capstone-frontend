@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useParams, Link, useNavigate } from "react-router-dom";
 
 function ItemShow(props) {
@@ -31,7 +32,6 @@ function ItemShow(props) {
       <Link to="#" onClick={handleGoBack}>
         Go Back
       </Link>
-      <br />
     </div>
   );
 }
