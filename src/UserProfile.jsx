@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
+
 import { useState, useEffect } from "react";
+import { ItemsNew } from "./ItemsNew";
 
 export function UserProfile(props) {
   const userId = localStorage.getItem("currentUser");
@@ -34,9 +36,11 @@ export function UserProfile(props) {
   console.log("props.items:", props.items);
   return (
     <div>
+      <ItemsNew />
       <h1>{curUser.name}s closet</h1>
       {props.items
         .filter((item) => item.user_id.toString() == curUser.id)
+        .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
         .map((item) => (
           <div key={item.id}>
             <div>

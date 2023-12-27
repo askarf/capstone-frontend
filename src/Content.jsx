@@ -10,6 +10,7 @@ import SignIn from "./SignIn";
 import UserProfile from "./UserProfile";
 import { LogoutLink } from "./LogoutLink";
 import { Modal } from "./Modal";
+import { UserItemShow } from "./UserItemShow";
 
 export function Content() {
   const [isItemsShowVisible, setIsItemsShowVisible] = useState(false);
@@ -22,10 +23,6 @@ export function Content() {
     setCurrentItem(item);
   };
 
-  const handleClose = () => {
-    setIsItemsShowVisible(false);
-  };
-
   const handleIndexItems = () => {
     axios.get("http://localhost:3000/items.json").then((response) => {
       console.log(response.data);
@@ -36,6 +33,35 @@ export function Content() {
     axios.get("http://localhost:3000/users.json").then((response) => {
       console.log(response.data);
       setUsers(response.data);
+    });
+  };
+
+  const handleUpdateItem = (id, params, successCallback) => {
+    console.log("handleUpdateItem", params);
+    axios.patch(`http://localhost:3000/items/${id}.json`, params).then((response) => {
+      setItems(
+        items.map((item) => {
+          if (item.id === response.data.id) {
+            return response.data;
+          } else {
+            return item;
+          }
+        })
+      );
+      successCallback();
+      handleClose();
+    });
+  };
+
+  const handleClose = () => {
+    setIsItemsShowVisible(false);
+  };
+
+  const handleDestroyItem = (item) => {
+    console.log("handleDestroyItem", item);
+    axios.delete(`http://localhost:3000/items/${item.id}.json`).then((response) => {
+      setItems(items.filter((i) => i.id !== item.id));
+      handleClose();
     });
   };
 
@@ -67,16 +93,7 @@ export function Content() {
       </Routes>
 
       <Modal show={isItemsShowVisible} onClose={handleClose}>
-        <form action="">
-          <h1>{currentItem.name}</h1>
-          <p>{currentItem.description}</p>
-          <p>{currentItem.size}</p>
-          <p>{currentItem.image}</p>
-          <p>{currentItem.condition}</p>
-          <p>{currentItem.retail_price}</p>
-          <p>{currentItem.selling_price}</p>
-          <button>Update</button>
-        </form>
+        <UserItemShow item={currentItem} onUpdateItem={handleUpdateItem} onDestroyItem={handleDestroyItem} />
       </Modal>
     </div>
   );
