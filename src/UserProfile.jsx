@@ -47,6 +47,9 @@ export function UserProfile(props) {
               <p>{item.condition}</p>
               <p>{item.retail_price}</p>
               <p>{item.selling_price}</p>
+              <button type="button" onClick={() => props.onItemShow(item)}>
+                Edit Item
+              </button>
 
               <p></p>
             </div>

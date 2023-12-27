@@ -9,10 +9,22 @@ import SignUp from "./SignUp";
 import SignIn from "./SignIn";
 import UserProfile from "./UserProfile";
 import { LogoutLink } from "./LogoutLink";
+import { Modal } from "./Modal";
 
 export function Content() {
+  const [isItemsShowVisible, setIsItemsShowVisible] = useState(false);
+  const [currentItem, setCurrentItem] = useState({});
   const [items, setItems] = useState([]);
   const [users, setUsers] = useState([]);
+
+  const handleShowItem = (item) => {
+    setIsItemsShowVisible(true);
+    setCurrentItem(item);
+  };
+
+  const handleClose = () => {
+    setIsItemsShowVisible(false);
+  };
 
   const handleIndexItems = () => {
     axios.get("http://localhost:3000/items.json").then((response) => {
@@ -48,8 +60,24 @@ export function Content() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/logout" element={<LogoutLink />} />
 
-        <Route path="/userprofile/:userId" element={<UserProfile users={users} items={items} />} />
+        <Route
+          path="/userprofile/:userId"
+          element={<UserProfile users={users} items={items} onItemShow={handleShowItem} />}
+        />
       </Routes>
+
+      <Modal show={isItemsShowVisible} onClose={handleClose}>
+        <form action="">
+          <h1>{currentItem.name}</h1>
+          <p>{currentItem.description}</p>
+          <p>{currentItem.size}</p>
+          <p>{currentItem.image}</p>
+          <p>{currentItem.condition}</p>
+          <p>{currentItem.retail_price}</p>
+          <p>{currentItem.selling_price}</p>
+          <button>Update</button>
+        </form>
+      </Modal>
     </div>
   );
 }
