@@ -22,6 +22,9 @@ export function ItemsNew() {
       <h1>New Item</h1>
       <form onSubmit={handleSubmit}>
         <div>
+          Name: <input name="name" type="text" />
+        </div>
+        <div>
           Description: <input name="description" type="text" />
         </div>
         <div>

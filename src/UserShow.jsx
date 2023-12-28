@@ -19,7 +19,11 @@ export function UserShow(props) {
   return (
     <div>
       <h1>User Show</h1>
-      <h2>name: {selectedUser.name}</h2>
+      <h2>
+        {selectedUser.name} {selectedUser.last_name}
+      </h2>
+      <h2>About: {selectedUser.about}</h2>
+
       <Link to="#" onClick={handleGoBack}>
         Go Back
       </Link>

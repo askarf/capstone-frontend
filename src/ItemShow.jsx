@@ -24,6 +24,10 @@ function ItemShow(props) {
       <h1>name: {selectedItem.name}</h1>
       <p>description: {selectedItem.description}</p>
       <p>price: {selectedItem.price}</p>
+      <p>size: {selectedItem.size}</p>
+      <p>retail price: {selectedItem.retail_price}</p>
+      <p>selling price: {selectedItem.selling_price}</p>
+      <p>condition: {selectedItem.condition}</p>
       <Link to={`/users/${selectedItem.user.id}`}>
         seller: {selectedItem.user.name} {selectedItem.user.last_name}
       </Link>

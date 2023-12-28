@@ -9,7 +9,8 @@ export function ItemsIndex(props) {
         <div key={item.id}>
           <div>
             <h2>{item.name}</h2>
-            <h4>{item.description}</h4>
+            <h4>Description: {item.description}</h4>
+            <p>Size: {item.size}</p>
             <Link to={`/items/${item.id}`}>View Item</Link>
           </div>
         </div>
