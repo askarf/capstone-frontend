@@ -21,21 +21,51 @@ function ItemShow(props) {
 
   return (
     <div>
-      <h1>name: {selectedItem.name}</h1>
-      <p>description: {selectedItem.description}</p>
-      <p>price: {selectedItem.price}</p>
-      <p>size: {selectedItem.size}</p>
-      <p>retail price: {selectedItem.retail_price}</p>
-      <p>selling price: {selectedItem.selling_price}</p>
-      <p>condition: {selectedItem.condition}</p>
-      <Link to={`/users/${selectedItem.user.id}`}>
-        seller: {selectedItem.user.name} {selectedItem.user.last_name}
-      </Link>
-      <br />
+      <div className="portfolio-modal" id="portfolioModal1" tabIndex="-1" role="dialog" aria-hidden="true">
+        <div className="modal-content">
+          <div className="close-modal"></div>
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-lg-8">
+                <div className="modal-body">
+                  {/* <!-- Project details--> */}
+                  <h2 className="text-uppercase">{selectedItem.name}</h2>
+                  <p className="item-intro text-muted">
+                    Size: {selectedItem.size} | Condition: {selectedItem.condition}
+                  </p>
+                  <img className="img-fluid d-block mx-auto custom-height" src={selectedItem.image} alt="..." />
 
-      <Link to="#" onClick={handleGoBack}>
-        Go Back
-      </Link>
+                  <p>{selectedItem.description}</p>
+                  <ul className="list-inline">
+                    <li>
+                      <strong>Retail Price:</strong> ${selectedItem.retail_price}
+                    </li>
+                    <li>
+                      <strong>Selling Price:</strong> ${selectedItem.selling_price}
+                    </li>
+                  </ul>
+                  <a
+                    className="btn btn-primary btn-l text-uppercase mb-2"
+                    type="button"
+                    href={`/users/${selectedItem.user.id}`}
+                  >
+                    Seller: {selectedItem.user.name} {selectedItem.user.last_name}
+                  </a>
+                  <div></div>
+                  <button
+                    className="btn btn-primary btn-l text-uppercase "
+                    type="button"
+                    href="#"
+                    onClick={handleGoBack}
+                  >
+                    Go Back
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

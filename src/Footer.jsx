@@ -2,10 +2,10 @@ export function Footer() {
   return (
     <div>
       {/* <!-- Footer--> */}
-      <footer className="footer py-4">
+      <footer className="footer py-4 fixed-bottom">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-4 text-lg-start">Copyright &copy; Your Website 2023</div>
+            <div className="col-lg-4 text-lg-start">Copyright &copy; PRELOVED 2023</div>
             <div className="col-lg-4 my-3 my-lg-0">
               <a className="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter">
                 <i className="fab fa-twitter"></i>
@@ -28,7 +28,6 @@ export function Footer() {
           </div>
         </div>
       </footer>
-      <h1>copyrite 2023</h1>
     </div>
   );
 }

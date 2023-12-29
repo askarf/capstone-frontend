@@ -32,21 +32,61 @@ export function SignIn() {
 
   return (
     <div id="login">
-      <h1>SignIn</h1>
       <ul>
         {errors.map((error) => (
           <li key={error}>{error}</li>
         ))}
       </ul>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Email: <input name="email" type="email" />
-        </div>
-        <div>
-          Password: <input name="password" type="password" />
-        </div>
-        <button type="submit">SignIn</button>
-      </form>
+      <div>
+        <section className="page-section" id="contact">
+          <div className="container">
+            <div className="text-center">
+              <h2 className="section-heading text-uppercase">Sign In</h2>
+              <h3 className="section-subheading text-muted">
+                Welcome back! Sign in to continue your stylish journey with us. Your curated wardrobe and fashion
+                favorites are just a click away.
+              </h3>
+            </div>
+
+            <form id="contactForm signup" onSubmit={handleSubmit}>
+              <div className="row align-items-stretch mb-5">
+                <div className="col-md-6">
+                  <div className="form-group">
+                    {/* <!-- Email address input--> */}
+                    <input
+                      className="form-control"
+                      type="email"
+                      placeholder="Your Email *"
+                      data-sb-validations="required,email"
+                      name="email"
+                    />
+                    <div className="invalid-feedback">An email is required.</div>
+                    <div className="invalid-feedback">Email is not valid.</div>
+                  </div>
+
+                  <div className="form-group">
+                    {/* <!-- password input--> */}
+                    <input
+                      className="form-control"
+                      type="password"
+                      placeholder="Your Password *"
+                      data-sb-validations="required"
+                      name="password"
+                    />
+                    <div className="invalid-feedback">A password is required.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center">
+                <button className="btn btn-primary btn-xl text-uppercase" type="submit">
+                  Sign Up
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

@@ -1,43 +1,77 @@
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export function Header() {
   const userId = [localStorage.getItem("currentUser")];
+  const handleClick = (event) => {
+    event.preventDefault();
+    delete axios.defaults.headers.common["Authorization"];
+    localStorage.removeItem("jwt");
+    localStorage.removeItem("currentUser");
+    window.location.href = "/";
+  };
   return (
     <div>
       {/* <!-- Navigation--> */}
-      <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-        <div className="container">
-          <a className="navbar-brand" href="#page-top">
-            {/* <img src="assets/img/navbar-logo.svg" alt="..." /> */}
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarResponsive"
-            aria-controls="navbarResponsive"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            Menu
-            <i className="fas fa-bars ms-1"></i>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarResponsive">
+      <nav className="navbar  navbar-dark navbar-expand-lg fixed-top" id="mainNav">
+        <a className="navbar-brand" href="#page-top">
+          <img src="/src/img/logos/logo.png" className="h-10" alt="logo" />
+        </a>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          Menu
+          <i className="fas fa-bars ms-1"></i>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarResponsive">
+          {localStorage.jwt === undefined ? (
+            <div>
+              <ul className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li className="nav-item">
+                  <a className="nav-link" href="/acount">
+                    Acount
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <Link to={`/`} className="nav-link ">
+                    Home
+                  </Link>
+                </li>
+
+                <li className="nav-item">
+                  <a className="nav-link" href="#team">
+                    Sellers
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#contact">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+          ) : (
             <ul className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
               <li className="nav-item">
-                <a className="nav-link" href="#services">
-                  Acount
+                <Link to={`/userprofile/${userId}`} className="nav-link">
+                  My Closet
+                </Link>
+              </li>
+              <li className="nav-item">
+                <a href="#" className="nav-link" onClick={handleClick}>
+                  Logout
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#portfolio">
-                  Portfolio
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#about">
-                  About
-                </a>
+                <Link to={`/`} className="nav-link">
+                  Home
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#team">
@@ -50,19 +84,9 @@ export function Header() {
                 </a>
               </li>
             </ul>
-          </div>
+          )}
         </div>
       </nav>
-      {localStorage.jwt === undefined ? (
-        <div>
-          <Link to={`/signup`}>Sign Up</Link> | <Link to={`/signin`}>Sign In</Link> | <Link to={"/"}>Home</Link>
-        </div>
-      ) : (
-        <div>
-          <Link to={`/logout`}>Log Out</Link> | <Link to={`/userprofile/${userId}`}>Your Closet</Link> |{" "}
-          <Link to={"/"}>Home</Link>
-        </div>
-      )}
     </div>
   );
 }

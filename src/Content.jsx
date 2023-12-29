@@ -11,6 +11,7 @@ import UserProfile from "./UserProfile";
 import { LogoutLink } from "./LogoutLink";
 import { Modal } from "./Modal";
 import { UserItemShow } from "./UserItemShow";
+import { Acount } from "./Acount";
 
 export function Content() {
   const [isItemsShowVisible, setIsItemsShowVisible] = useState(false);
@@ -73,9 +74,10 @@ export function Content() {
   }, []);
 
   return (
-    <div>
+    <div className="pt-5">
       <Routes>
         <Route path="/" element={<ItemsIndex items={items} />} />
+        <Route path="/acount" element={<Acount />} />
         <Route path="/items/:itemId" element={<ItemShow items={items} />} />
 
         <Route path="/users" element={<UserIndex users={users} />} />
