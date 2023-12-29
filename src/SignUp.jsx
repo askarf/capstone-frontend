@@ -26,7 +26,7 @@ export function SignUp() {
   return (
     <section className="page-section" id="contact">
       <div className="container">
-        <div className="text-center">
+        <div className="text-center ">
           <h2 className="section-heading text-uppercase contactus">Join Now</h2>
           <h3 className="section-subheading text-muted">
             Ready for a stylish adventure? Create your account now and join our friendly fashion community!

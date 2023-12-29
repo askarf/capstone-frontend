@@ -38,7 +38,7 @@ export function UserShow(props) {
             <div className="row justify-content-center pb-5">
               <div className="col-lg-8 pb-5">
                 <div className="modal-body">
-                  <img className="mx-auto rounded-circle custom-height-two pb-3" src={selectedUser.image} alt="..." />
+                  <img className="mx-auto  custom-height-two pb-3" src={selectedUser.image} alt="..." />
                   <h2 className="text-uppercase">
                     {selectedUser.name} {selectedUser.last_name}
                   </h2>

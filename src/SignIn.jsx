@@ -31,63 +31,61 @@ export function SignIn() {
   };
 
   return (
-    <div id="login">
-      <ul>
-        {errors.map((error) => (
-          <li key={error}>{error}</li>
-        ))}
-      </ul>
-      <div>
-        <section className="page-section" id="contact">
-          <div className="container">
-            <div className="text-center">
-              <h2 className="section-heading text-uppercase">Sign In</h2>
-              <h3 className="section-subheading text-muted">
-                Welcome back! Sign in to continue your stylish journey with us. Your curated wardrobe and fashion
-                favorites are just a click away.
-              </h3>
-            </div>
+    <section className="page-section singin" id="contact">
+      <div className="container">
+        <div className="text-center">
+          <h2 className="section-heading text-uppercase contactus">Sign In</h2>
+          <h3 className="section-subheading text-muted">
+            Welcome back! Sign in to continue your stylish journey with us. Your curated wardrobe and fashion favorites
+            are just a click away.
+          </h3>
+        </div>
 
-            <form id="contactForm signup" onSubmit={handleSubmit}>
-              <div className="row align-items-stretch mb-5">
-                <div className="col-md-6">
-                  <div className="form-group">
-                    {/* <!-- Email address input--> */}
-                    <input
-                      className="form-control"
-                      type="email"
-                      placeholder="Your Email *"
-                      data-sb-validations="required,email"
-                      name="email"
-                    />
-                    <div className="invalid-feedback">An email is required.</div>
-                    <div className="invalid-feedback">Email is not valid.</div>
-                  </div>
-
-                  <div className="form-group">
-                    {/* <!-- password input--> */}
-                    <input
-                      className="form-control"
-                      type="password"
-                      placeholder="Your Password *"
-                      data-sb-validations="required"
-                      name="password"
-                    />
-                    <div className="invalid-feedback">A password is required.</div>
-                  </div>
+        <form id="contactForm" data-sb-form-api-token="API_TOKEN" onSubmit={handleSubmit} className="py-4 my-5">
+          <div className="row align-items-stretch mb-5">
+            <div className="col-md-6">
+              <div className="form-group form-group-textarea mb-md-0">
+                {/* <!-- Message input--> */}
+                <input
+                  className="form-control"
+                  id="email"
+                  placeholder="Email *"
+                  data-sb-validations="required"
+                  name="email"
+                  type="email"
+                ></input>
+                <div className="invalid-feedback" data-sb-feedback="email:required">
+                  An email is required.
                 </div>
               </div>
-
-              <div className="text-center">
-                <button className="btn btn-primary btn-xl text-uppercase" type="submit">
-                  Sign Up
-                </button>
+            </div>
+            <div className="col-md-6">
+              <div className="form-group form-group-textarea mb-md-0">
+                {/* <!-- Message input--> */}
+                <input
+                  className="form-control"
+                  id="message"
+                  placeholder="Password *"
+                  data-sb-validations="required"
+                  name="password"
+                  type="password"
+                ></input>
+                <div className="invalid-feedback" data-sb-feedback="message:required">
+                  A password is required.
+                </div>
               </div>
-            </form>
+            </div>
           </div>
-        </section>
+
+          {/* <!-- Submit Button--> */}
+          <div className="text-center">
+            <button className="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">
+              Sign In
+            </button>
+          </div>
+        </form>
       </div>
-    </div>
+    </section>
   );
 }
 

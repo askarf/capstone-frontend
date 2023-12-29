@@ -15,7 +15,7 @@ export function Header() {
       {/* <!-- Navigation--> */}
       <nav className="navbar  navbar-dark navbar-expand-lg fixed-top" id="mainNav">
         <a className="navbar-brand" href="#page-top">
-          <img src="/src/img/logos/logo.png" className="h-10" alt="logo" />
+          <img src="/src/img/logos/logo.png" className="h-10 px-5" alt="logo" />
         </a>
         <button
           className="navbar-toggler"
@@ -31,53 +31,57 @@ export function Header() {
         </button>
         <div className="collapse navbar-collapse" id="navbarResponsive">
           {localStorage.jwt === undefined ? (
-            <div>
-              <ul className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                <li className="nav-item">
-                  <a className="nav-link" href="/acount">
-                    Acount
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <Link to={`/`} className="nav-link ">
-                    Home
-                  </Link>
-                </li>
+            <ul className="navbar-nav text-uppercase ms-auto py-4 px-5 py-lg-0">
+              <li className="nav-item">
+                <a className="nav-link" href="/acount">
+                  Acount
+                </a>
+              </li>
 
-                <li className="nav-item">
-                  <a className="nav-link" href="#team">
-                    Sellers
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#contact">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
+              <li className="nav-item">
+                <Link to={`/`} className="nav-link ">
+                  Home
+                </Link>
+              </li>
+
+              <li className="nav-item">
+                <a className="nav-link" href="/users">
+                  Sellers
+                </a>
+              </li>
+
+              <li className="nav-item">
+                <a className="nav-link" href="#contact">
+                  Contact
+                </a>
+              </li>
+            </ul>
           ) : (
-            <ul className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+            <ul className="navbar-nav text-uppercase ms-auto py-4 px-5 py-lg-0">
               <li className="nav-item">
                 <Link to={`/userprofile/${userId}`} className="nav-link">
                   My Closet
                 </Link>
               </li>
+
               <li className="nav-item">
                 <a href="#" className="nav-link" onClick={handleClick}>
                   Logout
                 </a>
               </li>
+
               <li className="nav-item">
                 <Link to={`/`} className="nav-link">
                   Home
                 </Link>
               </li>
+
               <li className="nav-item">
-                <a className="nav-link" href="#team">
+                <a className="nav-link" href="/users">
                   Sellers
                 </a>
               </li>
+
               <li className="nav-item">
                 <a className="nav-link" href="#contact">
                   Contact
