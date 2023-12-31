@@ -96,7 +96,7 @@ export function Content() {
         <Route path="/acount" element={<Acount />} />
         <Route path="/items/:itemId" element={<ItemShow items={items} />} />
 
-        <Route path="/users" element={<UserIndex users={users} />} />
+        <Route path="/users" element={<UserIndex users={users} items={items} />} />
         <Route path="/users/:userId" element={<UserShow users={users} />} />
         <Route path="/user/:userId" element={<UserShow users={users} />} />
 

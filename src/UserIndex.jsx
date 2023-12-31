@@ -1,4 +1,8 @@
 export function UserIndex(props) {
+  const { items } = props;
+
+  const filteredUsers = props.users.filter((user) => items.some((item) => item.user_id === user.id));
+
   return (
     <div>
       <section className="page-section bg-light" id="portfolio">
@@ -11,7 +15,7 @@ export function UserIndex(props) {
             </h3>
           </div>
           <div className="row">
-            {props.users.map((user) => (
+            {filteredUsers.map((user) => (
               <div key={user.id} className="col-lg-4 col-sm-6 mb-4 portfolio-item">
                 <div className="">
                   <div className="team-member">

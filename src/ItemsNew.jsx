@@ -1,7 +1,10 @@
+import React, { useState } from "react";
 import axios from "axios";
 
 export function ItemsNew() {
   const userID = localStorage.getItem("currentUser");
+  const [error, setError] = useState(null);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
@@ -14,13 +17,24 @@ export function ItemsNew() {
       })
       .catch((error) => {
         console.log(error.response.data.errors);
+        setError(error.response.data.errors.join(", "));
       });
+  };
+  const closeErrorPopup = () => {
+    setError(null);
   };
 
   return (
-    <div>
+    <div className="mb-5">
       <h1>New Item</h1>
-      <form onSubmit={handleSubmit}>
+      {error && (
+        <div className="error-popup">
+          <p>{error}</p>
+          <button onClick={closeErrorPopup}>Close</button>
+        </div>
+      )}
+
+      <form onSubmit={handleSubmit} className="mb-5">
         <div>
           Name: <input name="name" type="text" />
         </div>
