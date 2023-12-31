@@ -32,8 +32,7 @@ export function UserProfile(props) {
       </div>
     );
   }
-  console.log("Rendering UserProfile component with curUser:", curUser.id);
-  console.log("props.items:", props.items);
+
   return (
     <div>
       <div className="pt-5">

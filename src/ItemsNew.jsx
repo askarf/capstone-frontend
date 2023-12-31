@@ -11,12 +11,10 @@ export function ItemsNew() {
     axios
       .post("http://localhost:3000/items.json", params)
       .then((response) => {
-        console.log(response.data);
         event.target.reset();
         window.location.href = `/userProfile/${userID}`;
       })
       .catch((error) => {
-        console.log(error.response.data.errors);
         setError(error.response.data.errors.join(", "));
       });
   };

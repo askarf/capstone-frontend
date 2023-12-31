@@ -26,19 +26,16 @@ export function Content() {
 
   const handleIndexItems = () => {
     axios.get("http://localhost:3000/items.json").then((response) => {
-      console.log(response.data);
       setItems(response.data);
     });
   };
   const handleIndexUsers = () => {
     axios.get("http://localhost:3000/users.json").then((response) => {
-      console.log(response.data);
       setUsers(response.data);
     });
   };
 
   const handleUpdateItem = (id, params, successCallback) => {
-    console.log("handleUpdateItem", params);
     axios.patch(`http://localhost:3000/items/${id}.json`, params).then((response) => {
       setItems(
         items.map((item) => {
@@ -75,7 +72,6 @@ export function Content() {
   };
 
   const handleDestroyItem = (item) => {
-    console.log("handleDestroyItem", item);
     axios.delete(`http://localhost:3000/items/${item.id}.json`).then((response) => {
       setItems(items.filter((i) => i.id !== item.id));
       handleClose();
