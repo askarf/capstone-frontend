@@ -33,7 +33,37 @@ function ItemShow(props) {
                   <p className="item-intro text-muted">
                     Size: {selectedItem.size} | Condition: {selectedItem.condition}
                   </p>
-                  <img className="img-fluid d-block mx-auto custom-height" src={selectedItem.image} alt="..." />
+                  <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                    <div className="carousel-inner">
+                      {selectedItem.images.map((image, index) => (
+                        <div key={index} className={`carousel-item ${index === 0 ? "active" : ""}`}>
+                          <img
+                            className="img-fluid d-block mx-auto custom-height"
+                            src={image.url}
+                            alt={`Image ${index + 1}`}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <button
+                      className="carousel-control-prev"
+                      type="button"
+                      data-bs-target="#carouselExampleDark"
+                      data-bs-slide="prev"
+                    >
+                      <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span className="visually-hidden">Previous</span>
+                    </button>
+                    <button
+                      className="carousel-control-next"
+                      type="button"
+                      data-bs-target="#carouselExampleDark"
+                      data-bs-slide="next"
+                    >
+                      <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span className="visually-hidden">Next</span>
+                    </button>
+                  </div>
 
                   <p>{selectedItem.description}</p>
                   <ul className="list-inline">

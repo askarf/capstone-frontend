@@ -114,28 +114,6 @@ export function UserProfile(props) {
         <div id="account"></div>
       </div>
       <ItemsNew />
-      <h1>{curUser.name}s closet</h1>
-      {props.items
-        .filter((item) => item.user_id.toString() == curUser.id)
-        .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
-        .map((item) => (
-          <div key={item.id}>
-            <div>
-              <h2>{item.name}</h2>
-              <p>{item.description}</p>
-              <p>{item.size}</p>
-              <p>{item.image}</p>
-              <p>{item.condition}</p>
-              <p>{item.retail_price}</p>
-              <p>{item.selling_price}</p>
-              <button type="button" onClick={() => props.onItemShow(item)}>
-                Edit Item
-              </button>
-
-              <p></p>
-            </div>
-          </div>
-        ))}
     </div>
   );
 }
