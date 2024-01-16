@@ -41,7 +41,7 @@ export function UserProfile(props) {
           <div className="container">
             <div className="masthead-subheading"></div>
             <div className="masthead-heading text-uppercase">{curUser.name}s closet</div>
-            <a className="btn btn-primary btn-xl text-uppercase" href="#index">
+            <a className="btn btn-primary btn-xl text-uppercase" href="#ItemsNew">
               Add New Item
             </a>
           </div>
@@ -113,7 +113,9 @@ export function UserProfile(props) {
         </div>
         <div id="account"></div>
       </div>
-      <ItemsNew />
+      <div id="ItemsNew">
+        <ItemsNew />
+      </div>
     </div>
   );
 }
