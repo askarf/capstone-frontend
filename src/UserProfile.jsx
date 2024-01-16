@@ -79,7 +79,7 @@ export function UserProfile(props) {
                           </div>
                           <img
                             className="img-fluid custom-height "
-                            src={item.image}
+                            src={item.images[0].url}
                             alt="..."
                             style={{ objectFit: "cover", height: "500px" }}
                           />

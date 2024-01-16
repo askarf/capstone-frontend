@@ -22,8 +22,14 @@ export function UserItemShow(props) {
         <div>
           Size: <input defaultValue={props.item.size} name="size" type="text" />
         </div>
+
         <div>
-          Image: <input defaultValue={props.item.image} name="image" type="text" />
+          {/* Map through all images */}
+          {props.item.images.map((image, index) => (
+            <div key={index}>
+              Image {index + 1}: <input defaultValue={image.url} name={`image_${index}`} type="text" />
+            </div>
+          ))}
         </div>
         <div>
           Condition: <input defaultValue={props.item.condition} name="condition" type="text" />
