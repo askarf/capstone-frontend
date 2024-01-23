@@ -77,12 +77,12 @@ export function UserProfile(props) {
                               <h3>EDIT</h3>
                             </div>
                           </div>
-                          <img
+                          {/* <img
                             className="img-fluid custom-height "
                             src={item.images[0].url}
                             alt="..."
                             style={{ objectFit: "cover", height: "500px" }}
-                          />
+                          /> */}
                         </a>
                         <div className="portfolio-caption">
                           <div className="long">
