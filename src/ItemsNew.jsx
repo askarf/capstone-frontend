@@ -48,6 +48,15 @@ export function ItemsNew() {
         <div>
           Image Url 2: <input name="url2" type="text" />
         </div>
+        <div>
+          Image Url 3: <input name="url3" type="text" />
+        </div>
+        <div>
+          Image Url 4: <input name="url4" type="text" />
+        </div>
+        <div>
+          Image Url 5: <input name="url5" type="text" />
+        </div>
 
         <button type="submit">Create item</button>
       </form>
