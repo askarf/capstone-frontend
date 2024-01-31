@@ -30,9 +30,7 @@ export function ItemsNew() {
         <div>
           size: <input name="size" type="text" />
         </div>
-        {/* <div>
-          image: <input name="image" type="text" />
-        </div> */}
+
         <div>
           condition: <input name="condition" type="text" />
         </div>

@@ -55,9 +55,14 @@ export function UserProfile(props) {
                   {curUser.name} {curUser.last_name}
                 </h4>
                 <h3 className="section-subheading text-muted">{curUser.about}</h3>
-                <button className="btn btn-primary btn-l text-uppercase mb-5" href="#index">
+
+                <a
+                  type="button"
+                  onClick={() => props.onUserShow(curUser)}
+                  className="btn btn-primary btn-l text-uppercase mb-5"
+                >
                   Edit
-                </button>
+                </a>
               </div>
               <div className="text-center">
                 <h2 className="section-heading text-uppercase">Your Closet</h2>

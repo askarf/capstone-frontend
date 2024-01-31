@@ -11,17 +11,24 @@ import UserProfile from "./UserProfile";
 import { LogoutLink } from "./LogoutLink";
 import { Modal } from "./Modal";
 import { UserItemShow } from "./UserItemShow";
+import { UserProfileShow } from "./UserProfileShow";
 import { Acount } from "./Acount";
 
 export function Content() {
   const [isItemsShowVisible, setIsItemsShowVisible] = useState(false);
+  const [isUsersShowVisible, setIsUsersShowVisible] = useState(false);
   const [currentItem, setCurrentItem] = useState({});
+  const [currentUser, setCurrentUser] = useState({});
   const [items, setItems] = useState([]);
   const [users, setUsers] = useState([]);
 
   const handleShowItem = (item) => {
     setIsItemsShowVisible(true);
     setCurrentItem(item);
+  };
+  const handleShowUser = (user) => {
+    setIsUsersShowVisible(true);
+    setCurrentUser(user);
   };
 
   const handleIndexItems = () => {
@@ -69,6 +76,8 @@ export function Content() {
 
   const handleClose = () => {
     setIsItemsShowVisible(false);
+    setIsUsersShowVisible(false);
+    window.location.reload();
   };
 
   const handleDestroyItem = (item) => {
@@ -102,12 +111,15 @@ export function Content() {
 
         <Route
           path="/userprofile/:userId"
-          element={<UserProfile users={users} items={items} onItemShow={handleShowItem} />}
+          element={<UserProfile users={users} items={items} onItemShow={handleShowItem} onUserShow={handleShowUser} />}
         />
       </Routes>
 
       <Modal show={isItemsShowVisible} onClose={handleClose}>
         <UserItemShow item={currentItem} onUpdateItem={handleUpdateItem} onDestroyItem={handleDestroyItem} />
+      </Modal>
+      <Modal show={isUsersShowVisible} onClose={handleClose}>
+        <UserProfileShow user={currentUser} onUpdateUser={handleUpdateUser} />
       </Modal>
     </div>
   );
