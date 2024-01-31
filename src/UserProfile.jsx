@@ -54,7 +54,13 @@ export function UserProfile(props) {
                 <h4 className="section-heading text-uppercase">
                   {curUser.name} {curUser.last_name}
                 </h4>
-                <h3 className="section-subheading text-muted">{curUser.about}</h3>
+                <img
+                  className="img-fluid custom-height  "
+                  src={curUser.image}
+                  alt="..."
+                  style={{ objectFit: "cover", height: "500px" }}
+                />
+                <h3 className="section-subheading text-muted pt-5">{curUser.about}</h3>
 
                 <a
                   type="button"
