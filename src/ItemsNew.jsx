@@ -42,6 +42,12 @@ export function ItemsNew() {
         <div>
           selling price: <input name="selling_price" type="text" />
         </div>
+        <div>
+          Image Url 1: <input name="url1" type="text" />
+        </div>
+        <div>
+          Image Url 2: <input name="url2" type="text" />
+        </div>
 
         <button type="submit">Create item</button>
       </form>
