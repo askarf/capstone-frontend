@@ -137,10 +137,6 @@ export function SignUp() {
               </div>
             </div>
           </div>
-          {/* <!-- Submit success message-->
-            <!---->
-            <!-- This is what your users will see when the form-->
-            <!-- has successfully submitted--> */}
           <div className="d-none" id="submitSuccessMessage">
             <div className="text-center text-white mb-3">
               <div className="fw-bolder">Form submission successful!</div>
@@ -151,14 +147,9 @@ export function SignUp() {
               </a>
             </div>
           </div>
-          {/* <!-- Submit error message-->
-            <!---->
-            <!-- This is what your users will see when there is-->
-            <!-- an error submitting the form--> */}
           <div className="d-none" id="submitErrorMessage">
             <div className="text-center text-danger mb-3">Error sending message!</div>
           </div>
-          {/* <!-- Submit Button--> */}
           <div className="text-center">
             <button className="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">
               Sign Up
