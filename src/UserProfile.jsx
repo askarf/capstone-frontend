@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { ItemsNew } from "./ItemsNew";
+import { UsersLovedItems } from "./UsersLovedItems";
 
 export function UserProfile(props) {
   const userId = localStorage.getItem("currentUser");
@@ -126,6 +127,7 @@ export function UserProfile(props) {
       </div>
       <div id="ItemsNew">
         <ItemsNew />
+        <UsersLovedItems />
       </div>
     </div>
   );
