@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
+import axios from "axios";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { LoveButton } from "./LoveButton";
 
 function ItemShow(props) {
   const { itemId } = useParams();
@@ -19,6 +21,11 @@ function ItemShow(props) {
     navigate(-1);
   };
 
+  // const handleLoveItem = () => {
+  //   const itemId = selectedItem.id;
+  //   axios.post(`http://localhost:3000/users_loved_items.json`, { item_id: itemId }).then((response) => {});
+  //   window.location.reload();
+  // };
   return (
     <div>
       <div className="portfolio-modal" id="portfolioModal1" tabIndex="-1" role="dialog" aria-hidden="true">
@@ -33,7 +40,7 @@ function ItemShow(props) {
                   <p className="item-intro text-muted">
                     Size: {selectedItem.size} | Condition: {selectedItem.condition}
                   </p>
-                  <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                  <div id="carouselExampleDark" className="carousel carousel-dark slide" data-bs-ride="carousel">
                     <div className="carousel-inner">
                       {selectedItem.images.map((image, index) => (
                         <div key={index} className={`carousel-item ${index === 0 ? "active" : ""}`}>
@@ -90,6 +97,8 @@ function ItemShow(props) {
                   >
                     Go Back
                   </button>
+
+                  <LoveButton selectedItem={selectedItem} />
                 </div>
               </div>
             </div>

@@ -8,7 +8,7 @@ import UserShow from "./UserShow";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
 import UserProfile from "./UserProfile";
-import { LogoutLink } from "./LogoutLink";
+
 import { Modal } from "./Modal";
 import { UserItemShow } from "./UserItemShow";
 import { UserProfileShow } from "./UserProfileShow";
@@ -124,7 +124,6 @@ export function Content() {
 
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
-        <Route path="/logout" element={<LogoutLink />} />
 
         <Route
           path="/userprofile/:userId"
