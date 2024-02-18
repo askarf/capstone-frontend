@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { ItemsNew } from "./ItemsNew";
-import { UsersLovedItems } from "./UsersLovedItems";
 
 export function UserProfile(props) {
   const userId = localStorage.getItem("currentUser");
@@ -125,9 +124,49 @@ export function UserProfile(props) {
         </div>
         <div id="account"></div>
       </div>
+      <div className="" id="index">
+        <section className="page-section bg-light" id="portfolio">
+          <div className="container">
+            <div className="text-center">
+              <h2 className="section-heading text-uppercase">Your Loved Items</h2>
+              <h3 className="section-subheading text-muted"></h3>
+            </div>
+            <div className="row">
+              {curUser.loved_items.map((lovedItem) => (
+                <div key={lovedItem.id} className="col-lg-2 col-sm-6 mb-4">
+                  <div className="portfolio-item">
+                    <a
+                      type="button"
+                      onClick={() => props.onDestroyLovedItem(lovedItem, curUser)}
+                      className="portfolio-link"
+                    >
+                      <div className="portfolio-hover">
+                        <div className="portfolio-hover-content">
+                          <h3>UNLOVE</h3>
+                        </div>
+                      </div>
+                      <img
+                        className="img-fluid custom-height "
+                        src={"https://i.etsystatic.com/43900044/r/il/a42f8f/5377400754/il_1588xN.5377400754_jl8f.jpg"}
+                        alt="..."
+                        style={{ objectFit: "cover", height: "300px" }} // Adjusted height
+                      />
+                    </a>
+                    <div className="portfolio-caption">
+                      <div className="long">
+                        <div className="portfolio-caption-subheading">{lovedItem.name}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+
       <div id="ItemsNew">
         <ItemsNew />
-        <UsersLovedItems />
       </div>
     </div>
   );

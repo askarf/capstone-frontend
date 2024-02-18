@@ -21,6 +21,7 @@ export function Content() {
   const [currentUser, setCurrentUser] = useState({});
   const [items, setItems] = useState([]);
   const [users, setUsers] = useState([]);
+  const [usersLovedItems, setUsersLovedItems] = useState([]);
 
   const handleShowItem = (item) => {
     setIsItemsShowVisible(true);
@@ -39,6 +40,11 @@ export function Content() {
   const handleIndexUsers = () => {
     axios.get("http://localhost:3000/users.json").then((response) => {
       setUsers(response.data);
+    });
+  };
+  const handleIndexUsersLovedItems = () => {
+    axios.get("http://localhost:3000/users_loved_items.json").then((response) => {
+      setUsersLovedItems(response.data);
     });
   };
 
@@ -86,12 +92,23 @@ export function Content() {
       handleClose();
     });
   };
+  const handleDestroyLovedItem = (usersLovedItem, currentUser) => {
+    const curLovedItem = usersLovedItems.find(
+      (item) => item.item_id === usersLovedItem.id && item.user_id === currentUser.id
+    );
+    axios.delete(`http://localhost:3000/users_loved_items/${curLovedItem.id}.json`).then((response) => {
+      window.location.reload();
+    });
+  };
 
   useEffect(() => {
     handleIndexItems();
   }, []);
   useEffect(() => {
     handleIndexUsers();
+  }, []);
+  useEffect(() => {
+    handleIndexUsersLovedItems();
   }, []);
 
   return (
@@ -111,7 +128,16 @@ export function Content() {
 
         <Route
           path="/userprofile/:userId"
-          element={<UserProfile users={users} items={items} onItemShow={handleShowItem} onUserShow={handleShowUser} />}
+          element={
+            <UserProfile
+              users={users}
+              items={items}
+              lovedItems={usersLovedItems}
+              onItemShow={handleShowItem}
+              onUserShow={handleShowUser}
+              onDestroyLovedItem={handleDestroyLovedItem}
+            />
+          }
         />
       </Routes>
 
