@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import axios from "axios";
+
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { LoveButton } from "./LoveButton";
 
@@ -21,11 +21,6 @@ function ItemShow(props) {
     navigate(-1);
   };
 
-  // const handleLoveItem = () => {
-  //   const itemId = selectedItem.id;
-  //   axios.post(`http://localhost:3000/users_loved_items.json`, { item_id: itemId }).then((response) => {});
-  //   window.location.reload();
-  // };
   return (
     <div>
       <div className="portfolio-modal" id="portfolioModal1" tabIndex="-1" role="dialog" aria-hidden="true">
