@@ -155,6 +155,13 @@ export function SignUp() {
               Sign Up
             </button>
           </div>
+          <div className="container pt-3">
+            <div className="row justify-content-center">
+              <div className="col-12 text-center">
+                <a href="http://localhost:5173/signin">Sign in</a>
+              </div>
+            </div>
+          </div>
         </form>
       </div>
     </section>

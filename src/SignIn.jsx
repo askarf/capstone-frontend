@@ -20,7 +20,7 @@ export function SignIn() {
         localStorage.setItem("jwt", response.data.jwt);
         localStorage.setItem("currentUser", response.data.user_id);
         event.target.reset();
-        window.location.href = "/"; // Change this to hide a modal, redirect to a specific page, etc.
+        window.location.href = "/";
       })
       .catch((error) => {
         setErrors(["Invalid email or password"]);
@@ -80,7 +80,18 @@ export function SignIn() {
               Sign In
             </button>
           </div>
+          <div className="container pt-3">
+            <div className="row justify-content-center">
+              <div className="col-12 text-center">
+                <a href="http://localhost:5173/signup">Create a new account</a>
+              </div>
+            </div>
+          </div>
         </form>
+
+        <Provider apiKey="acc0dbccce8e557db5ebbe6d605aaa">
+          <LikeButton namespace="my-blog-post" id="how-to-beat-me-at-chess" />
+        </Provider>
       </div>
     </section>
   );

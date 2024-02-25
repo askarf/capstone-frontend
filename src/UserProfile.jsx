@@ -19,6 +19,7 @@ export function UserProfile(props) {
         console.error("Error fetching user data:", error);
         // Handle the error as needed
       }
+      console.log({ user: curUser });
     };
 
     fetchData();
@@ -149,7 +150,7 @@ export function UserProfile(props) {
                         className="img-fluid custom-height "
                         src={"https://i.etsystatic.com/43900044/r/il/a42f8f/5377400754/il_1588xN.5377400754_jl8f.jpg"}
                         alt="..."
-                        style={{ objectFit: "cover", height: "300px" }} // Adjusted height
+                        style={{ objectFit: "cover", height: "300px" }}
                       />
                     </a>
                     <div className="portfolio-caption">
