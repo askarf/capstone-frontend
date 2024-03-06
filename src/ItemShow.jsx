@@ -2,7 +2,6 @@
 
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { LoveButton } from "./LoveButton";
-// import { LikeButton } from "@lyket/react";
 
 function ItemShow(props) {
   const { itemId } = useParams();
@@ -77,8 +76,6 @@ function ItemShow(props) {
                       <strong>Selling Price:</strong> ${selectedItem.selling_price}
                     </li>
                   </ul>
-
-                  {/* <LikeButton id="do-you-like-pizza" component={ClapButton.templates.Twitter} /> */}
 
                   <a
                     className="btn btn-primary btn-l text-uppercase mb-2"

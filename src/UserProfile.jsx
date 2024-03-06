@@ -20,6 +20,9 @@ export function UserProfile(props) {
         // Handle the error as needed
       }
       console.log({ user: curUser });
+      console.log({ loved_item: curUser.loved_items[0] });
+      console.log({ loved_item_images: curUser.loved_items[0].images });
+      console.log({ items: curUser.items[0].images });
     };
 
     fetchData();
@@ -130,6 +133,8 @@ export function UserProfile(props) {
           <div className="container">
             <div className="text-center">
               <h2 className="section-heading text-uppercase">Your Loved Items</h2>
+
+              <h2 className="section-heading text-uppercase">{curUser.loved_items[0].images}</h2>
               <h3 className="section-subheading text-muted"></h3>
             </div>
             <div className="row">
@@ -156,6 +161,7 @@ export function UserProfile(props) {
                     <div className="portfolio-caption">
                       <div className="long">
                         <div className="portfolio-caption-subheading">{lovedItem.name}</div>
+                        {/* <div className="portfolio-caption-subheading">{lovedItem.images.first.url}</div> */}
                       </div>
                     </div>
                   </div>

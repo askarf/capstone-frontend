@@ -88,10 +88,6 @@ export function SignIn() {
             </div>
           </div>
         </form>
-
-        <Provider apiKey="acc0dbccce8e557db5ebbe6d605aaa">
-          <LikeButton namespace="my-blog-post" id="how-to-beat-me-at-chess" />
-        </Provider>
       </div>
     </section>
   );

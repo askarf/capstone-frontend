@@ -47,6 +47,11 @@ export function Content() {
       setUsersLovedItems(response.data);
     });
   };
+  const handleIndexLovedItems = () => {
+    axios.get("http://localhost:3000/loved_items.json").then((response) => {
+      setUsersLovedItems(response.data);
+    });
+  };
 
   const handleUpdateItem = (id, params, successCallback) => {
     axios.patch(`http://localhost:3000/items/${id}.json`, params).then((response) => {
